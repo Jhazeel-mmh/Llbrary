@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button type="button" id="addBook">Add book</button>
+            <input type="checkbox" id="colorTheme">
+        </div>
+        <div class="aside">
+            <ul class="nav">
+                <li class="nav-item">All</li>
+                <li class="nav-item">Read</li>
+                <li class="nav-item">Favs</li>
+            </ul>
+        </div>
+        <div class="library">
+            <div class="book-card">
+                <div class="book-front-page"></div>
+                <h2 class="book-title">The Beggining After The End</h2>
+                <h3 class="book-author">TurtleMe</h3>
+                <button type="button" id="read-1">Read</button>
+                <button type="button" id="fav-1"></button>
+            </div>
+        </div>
+        <div class="dialog">
+            <dialog>
+                <form>
+                    <button value="cancel" formmethod="dialog" id="borderClose">x</button>
+                    <label for="title">
+                        Title:
+                        <input type="text" name="bookTitle" id="title">
+                    </label>
+                    <label for="author">
+                        Author:
+                        <input type="text" name="bookAuthor" id="author">
+                    </label>
+                    <label for="pages">
+                        Pages: 
+                        <input type="number" name="bookPages" id="pages">
+                    </label>
+                    <div class="options">
+                        <button id="confirmBtn" value="default">Confirm</button>
+                        <button value="cancel" formmethod="dialog">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+        </div>
+    </div>
+</body>
+</html>
