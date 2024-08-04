@@ -3,6 +3,7 @@
     --clr-neutral-500: #81818181;
     --clr-neutral-200: #a5a5a5;
     --clr-neutral-100: #fdfafa;
+    --clr-green-500: #16a34a;
     /*
     --clr-primary-700: ;
     --clr-primary-500: ;
@@ -61,7 +62,7 @@ img[src$="svg"] {
     background-color: var(--clr-primary-500, var(--clr-neutral-700));
 }
 
-#colorTheme {
+#colorTheme, #read {
     visibility: hidden;
     width: 0;
     height: 0;
@@ -78,7 +79,7 @@ img[src$="svg"] {
     transition: 0.3s;
 }
 
-#labelTheme::after {
+#labelTheme::after, #isReadLabel::after {
     content: "";
     display: block;
     width: 40px;
@@ -90,7 +91,8 @@ img[src$="svg"] {
     transition: 0.3s;
 }   
 
-#colorTheme:checked + #labelTheme::after {
+#colorTheme:checked + #labelTheme::after, 
+#read:checked + #isReadLabel::after {
     background-color: var(--clr-primary-700, var(--clr-neutral-700));
     transform: translateX(125%);
 }   
@@ -168,4 +170,81 @@ img[src$="svg"] {
 
 .book-options button:hover {
     background-color: var(--clr-primary-500, var(--clr-neutral-500));
+}
+
+#dialogBook[open] {
+    min-width: 30vw;
+    min-height: 100vh;
+    position: absolute;
+    left: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.dialogBook__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#borderClose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    background-color: var(--clr-primary-700, var(--clr-neutral-200));
+    color: var(--clr-neutral-100);
+    padding: 10px;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.form-dialog {
+    display: flex;
+    flex-flow: column;
+    gap: 30px;
+}
+
+.form-dialog > label {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    align-items: center;
+}
+
+#isReadLabel {
+    width: 50px;
+    height: 20px;
+    background-color: var(--clr-neutral-500);
+    border-radius: 2.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+#isReadLabel::after {
+    width: 20px;
+    height: 20px;
+    left: -3px;
+}
+
+#read:checked + #isReadLabel::after {
+    background-color: var(--clr-green-500, var(--clr-neutral-700));
+    transform: translateX(160%);
+} 
+
+.form-dialog__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.form-dialog__options > button {
+    background-color: var(--clr-primary-700, var(--clr-neutral-200));
+    color: var(--clr-neutral-100);
+    padding: 25px;
+    border: none;
+    border-radius: 0.5rem;
 }

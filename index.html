@@ -6,7 +6,7 @@
     <title>Library</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -40,36 +40,58 @@
         </div>
         <div class="library">
             <div class="book-card">
+                <div class="book-front-page">
+                    <img src="" alt="">
+                </div>
+                <h2 class="book-title">The Beggining After The End</h2>
+                <h3 class="book-author">TurtleMe</h3>
+                <div class="book-options">
+                    <button type="button" id="read-1">Read</button>
+                    <button type="button" id="fav-1"><img src="icos/book-heart.svg" alt=""></button>
+                </div>
+            </div>
+            <div class="book-card">
                 <div class="book-front-page"></div>
                 <h2 class="book-title">The Beggining After The End</h2>
                 <h3 class="book-author">TurtleMe</h3>
-                <button type="button" id="read-1">Read</button>
-                <button type="button" id="fav-1"></button>
+                <div class="book-options">
+                    <button type="button" id="read-1">Read</button>
+                    <button type="button" id="fav-1"><img src="icos/book-heart.svg" alt=""></button>
+                </div>
             </div>
         </div>
-        <div class="dialog">
-            <dialog>
-                <form>
-                    <button value="cancel" formmethod="dialog" id="borderClose">x</button>
-                    <label for="title">
-                        Title:
-                        <input type="text" name="bookTitle" id="title">
-                    </label>
-                    <label for="author">
-                        Author:
-                        <input type="text" name="bookAuthor" id="author">
-                    </label>
-                    <label for="pages">
-                        Pages: 
-                        <input type="number" name="bookPages" id="pages">
-                    </label>
-                    <div class="options">
-                        <button id="confirmBtn" value="default">Confirm</button>
-                        <button value="cancel" formmethod="dialog">Cancel</button>
-                    </div>
-                </form>
-            </dialog>
-        </div>
+        <dialog id="dialogBook">
+            <form class="dialogBook__header">
+                <h1>Add Book</h1>
+                <button value="cancel" formmethod="dialog" id="borderClose">x</button>
+            </form>
+            <form class="form-dialog">
+                <label for="title">
+                    Title:
+                    <input type="text" name="bookTitle" id="title" placeholder="Harry Potter">
+                </label>
+                <label for="author">
+                    Author:
+                    <input type="text" name="bookAuthor" id="author" placeholder="J. K. Rowling">
+                </label>
+                <label for="pages">
+                    Pages: 
+                    <input type="number" name="bookPages" id="pages" placeholder="320">
+                </label>
+                <label for="url">
+                    FrontPage: 
+                    <input type="url" name="bookFrontpageUrl" id="url" placeholder="https://google.com/imgs">
+                </label>
+                <label for="read">
+                    Read: 
+                    <input type="checkbox" name="isRead" id="read">
+                </label>
+                <div class="form-dialog__options">
+                    <button id="confirmBtn" value="default">Confirm</button>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                </div>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>
