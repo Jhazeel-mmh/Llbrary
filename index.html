@@ -11,13 +11,17 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="header__add">
+            <button type="button" id="addBook">
                 <img src="icos/book-plus.svg" alt="" >
-                <button type="button" id="addBook">Add book</button>
-            </div>
+                Add book
+            </button>
             <input type="checkbox" id="colorTheme">
+            <label for="colorTheme" id="labelTheme"></label>
         </div>
         <div class="aside">
+            <h1 id="page-title">
+                Library 
+            </h1>
             <ul class="nav" role="list">
                 <li class="nav-item">
                     <img src="icos/book-open-variant.svg" alt="" >

@@ -1,7 +1,7 @@
 :root {
-    --clr-neutral-700: #2c2c2c;
-    --clr-neutral-500: #6d6c6c81;
-    --clr-neutral-200: #8b8b8b;
+    --clr-neutral-700: #1a1919;
+    --clr-neutral-500: #81818181;
+    --clr-neutral-200: #a5a5a5;
     --clr-neutral-100: #fdfafa;
     /*
     --clr-primary-700: ;
@@ -25,6 +25,7 @@ ul[role="list"], ol[role="list"] {
 img[src$="svg"] {
     width: 50px;
     height: 50px;
+    fill: var(--clr-primary-700, black);
 }
 
 .container {
@@ -38,10 +39,78 @@ img[src$="svg"] {
 
 .header {
     grid-area: header;
+    background-color: var(--clr-primary-200, var(--clr-neutral-100));
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+#addBook {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--clr-primary-200, var(--clr-neutral-500));
+    color: var(--clr-primary-700, black);
+    padding: 10px;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+#addBook:hover {
+    background-color: var(--clr-primary-500, var(--clr-neutral-700));
+}
+
+#colorTheme {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+#labelTheme {
+    width: 100px;
+    height: 50px;
+    background-color: var(--clr-neutral-500);
+    border-radius: 2.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+#labelTheme::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-neutral-100);
+    border-radius: 2.5rem;
+    position: absolute;
+    left: 5px;
+    transition: 0.3s;
+}   
+
+#colorTheme:checked + #labelTheme::after {
+    background-color: var(--clr-primary-700, var(--clr-neutral-700));
+    transform: translateX(125%);
+}   
 
 .aside {
     grid-area: aside;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    justify-content: center;
+    gap: 20px;
+}
+
+#page-title {
+    align-self: center;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .library {
