@@ -12,17 +12,7 @@ Book.prototype.toggleRead = function (){
     this.read = !this.read;
 }
 
-let addBookbtn = document.getElementById("addBook");
-let dialog = document.getElementById("dialogBook");
-let confirmBtn = document.getElementById("confirmBtn");
-
-addBookbtn.addEventListener("click", () => {
-    dialog.showModal();
-});
-
-confirmBtn.addEventListener("click", event => {
-    event.preventDefault();
-
+function addBook(){
     // get all the inputs values
     let titleBook = document.getElementById("title").value;
     let authorBook = document.getElementById("author").value;
@@ -42,5 +32,18 @@ confirmBtn.addEventListener("click", event => {
 
     myLibrary.push(book);
     dialog.close("success");
+}
+
+let addBookbtn = document.getElementById("addBook");
+let dialog = document.getElementById("dialogBook");
+let confirmBtn = document.getElementById("confirmBtn");
+
+addBookbtn.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+confirmBtn.addEventListener("click", event => {
+    event.preventDefault();
+    addBook();
 });
 
