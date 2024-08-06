@@ -22,9 +22,11 @@ function addBook(){
     
     let book = new Book(titleBook, authorBook, pagesBook, urlFrontpageBook, readBook);
 
+    if (!book) return dialog.close("error");
+
     // ensures that  all the inputs are filled
-    for (propertie of book){
-        if (!book[propertie]){
+    for (propertie in book){
+        if (propertie !== "read" && !book[propertie]){
             dialog.close("error");
             return;
         }
