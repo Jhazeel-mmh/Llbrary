@@ -222,6 +222,7 @@ img[src$="svg"] {
     align-items: center;
     position: relative;
     transition: 0.3s;
+    bottom: 10px;
 }
 
 #isReadLabel::after {
