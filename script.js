@@ -47,3 +47,20 @@ confirmBtn.addEventListener("click", event => {
     addBook();
 });
 
+let promptMsg = document.querySelector(".prompt");
+
+dialog.addEventListener("close", () => {
+    if (dialog.returnValue === "success"){
+        promptMsg.textContent = "Book added"; 
+        promptMsg.classList.add("prompt-success");
+    } else {
+        promptMsg.textContent = "Can not add the book";
+        promptMsg.classList.add("prompt-error");
+    }
+    
+    setTimeout(() => {
+        promptMsg.classList.remove("prompt-error");
+        promptMsg.classList.remove("prompt-success");
+    }, 2000);
+
+});

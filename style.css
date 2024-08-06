@@ -4,6 +4,7 @@
     --clr-neutral-200: #a5a5a5;
     --clr-neutral-100: #fdfafa;
     --clr-green-500: #16a34a;
+    --clr-red-500: #991b1b;
     /*
     --clr-primary-700: ;
     --clr-primary-500: ;
@@ -45,6 +46,33 @@ img[src$="svg"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.prompt {
+    position: absolute;
+    left: 50vw;
+    top: 10px;
+    width: 300px;
+    height: 150px;
+    color: var(--clr-neutral-100);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-900);
+    border-radius: 0.5rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.prompt-success {
+    background-color: var(--clr-primary-700, var(--clr-neutral-200));
+    opacity: 1;
+}
+
+.prompt-error {
+    background-color: var(--clr-red-500, var(--clr-neutral-200));
+    opacity: 1;
 }
 
 #addBook {

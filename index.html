@@ -9,6 +9,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <p class="prompt">Can´t add the book</p>
     <div class="container">
         <div class="header">
             <button type="button" id="addBook">
@@ -63,7 +64,7 @@
         <dialog id="dialogBook">
             <form class="dialogBook__header">
                 <h1>Add Book</h1>
-                <button value="cancel" formmethod="dialog" id="borderClose">x</button>
+                <button value="cancel" formmethod="dialog" id="cancelBtn">x</button>
             </form>
             <form class="form-dialog">
                 <label for="title">
@@ -84,11 +85,14 @@
                 </label>
                 <label for="read">
                     Read: 
-                    <input type="checkbox" name="isRead" id="read">
+                    <div class="toggle">
+                        <input type="checkbox" name="isRead" id="read">
+                        <label for="read" id="isReadLabel"></label>
+                    </div>
                 </label>
                 <div class="form-dialog__options">
                     <button id="confirmBtn" value="default">Confirm</button>
-                    <button value="cancel" formmethod="dialog">Cancel</button>
+                    <button value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
                 </div>
             </form>
         </dialog>
