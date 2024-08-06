@@ -149,7 +149,8 @@ img[src$="svg"] {
     padding: 30px;
     display: grid;
     grid-template-columns:  repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(400px, 1fr ));
+    grid-template-rows: repeat(2, 400px);
+    grid-auto-rows: 500px;
     gap: 30px;
 }
 
@@ -158,6 +159,7 @@ img[src$="svg"] {
     flex-direction: column;
     gap: 10px;
     transition: 0.5s;
+    max-height: 100%;
 }
 
 .book-card:hover {
@@ -170,7 +172,7 @@ img[src$="svg"] {
 
 .book-front-page {
     width: 100%;
-    height: 80%;
+    max-height: 250px;
     background-color: var(--clr-primary-500, var(--clr-neutral-500));
     border-radius: 0.5rem;
     box-shadow: 10px 10px 20px -3px var(--clr-neutral-200);
@@ -180,7 +182,7 @@ img[src$="svg"] {
 }
 
 .book-front-page > img {
-    height: auto;
+    max-height: 100%;
     border-radius: 0.5rem;
 }
 
