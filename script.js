@@ -35,11 +35,12 @@ confirmBtn.addEventListener("click", event => {
     // ensures that  all the inputs are filled
     for (propertie of book){
         if (!book[propertie]){
-            showMsg("error", "Can not add this book");
+            dialog.close("error");
             return;
         }
     }
 
     myLibrary.push(book);
-    showMsg("success", "Book added");
+    dialog.close("success");
 });
+
