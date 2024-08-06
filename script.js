@@ -6,10 +6,15 @@ function Book(title, author, pages, url, read){
     this.pages = pages;
     this.url = url;
     this.read = read;
+    this.fav = false;
 };
 
 Book.prototype.toggleRead = function (){
     this.read = !this.read;
+}
+
+Book.prototype.Fav = function (){
+    this.read = !this.fav;
 }
 
 function addBook(){
