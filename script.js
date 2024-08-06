@@ -1,9 +1,10 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read){
+function Book(title, author, pages, url, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.url = url;
     this.read = read;
 };
 
@@ -15,14 +16,30 @@ let addBookbtn = document.getElementById("addBook");
 let dialog = document.getElementById("dialogBook");
 let confirmBtn = document.getElementById("confirmBtn");
 
-let titleBook = document.getElementById("title");
-let authorBook = document.getElementById("author");
-let pagesBook = document.getElementById("pages");
-let readBook = document.getElementById("read");
-let urlFrontpageBook = document.getElementById("url");
-
-
-
 addBookbtn.addEventListener("click", () => {
     dialog.showModal();
-})
+});
+
+confirmBtn.addEventListener("click", event => {
+    event.preventDefault();
+
+    // get all the inputs values
+    let titleBook = document.getElementById("title").value;
+    let authorBook = document.getElementById("author").value;
+    let pagesBook = document.getElementById("pages").value;
+    let urlFrontpageBook = document.getElementById("url").value;
+    let readBook = document.getElementById("read").checked;
+    
+    let book = new Book(titleBook, authorBook, pagesBook, urlFrontpageBook, readBook);
+
+    // ensures that  all the inputs are filled
+    for (propertie of book){
+        if (!book[propertie]){
+            showMsg("error", "Can not add this book");
+            return;
+        }
+    }
+
+    myLibrary.push(book);
+    showMsg("success", "Book added");
+});
