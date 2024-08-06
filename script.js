@@ -1,6 +1,7 @@
 const myLibrary = [];
 
 function Book(title, author, pages, url, read){
+    this.id = -1;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -13,8 +14,12 @@ Book.prototype.toggleRead = function (){
     this.read = !this.read;
 }
 
-Book.prototype.Fav = function (){
+Book.prototype.toggleFav = function (){
     this.read = !this.fav;
+}
+
+Book.prototype.setId = function(id){
+    this.id = id;
 }
 
 function addBook(){
@@ -40,6 +45,36 @@ function addBook(){
     myLibrary.push(book);
     dialog.close("success");
 }
+
+function displayBookCards(){
+    let librayContainer = document.querySelector(".library");
+    myLibrary.forEach((book, index) => {
+        let templateCard = document.getElementById("templateCardBook").cloneNode(true);
+        templateCard.id = index;
+        book.setId(index);
+        templateCard.querySelector(".book-front-page-img").src = book.url;
+        templateCard.querySelector(".book-title");
+        templateCard.querySelector(".book-author");
+        librayContainer.appendChild(templateCard);
+    });
+}
+
+function addDefaultBooks(){
+    let TBATEe = new Book("The Beginning After The End Vol. 8", "TurtleMe", 559, 
+        "https://elcoleccionistadenovelas.wordpress.com/wp-content/uploads/2023/06/57454646.jpg?w=350&h=560", true);
+
+    let TBATEs = new Book("The Beginning After The End Vol. 7", "TurtleMe", 407, 
+        "https://elcoleccionistadenovelas.wordpress.com/wp-content/uploads/2023/06/tbate-libro-7.jpg?w=350&h=560", false);
+
+    let TBATEsix = new Book("The Beginning After The End Vol. 6", "TurtleMe", 392, 
+        "https://elcoleccionistadenovelas.wordpress.com/wp-content/uploads/2023/06/tbate-libro-6.png?w=350&h=453", false);
+    TBATEsix.toggleFav();
+
+    myLibrary.push(TBATEe);
+    myLibrary.push(TBATEs);
+    myLibrary.push(TBATEsix);
+};
+
 
 let addBookbtn = document.getElementById("addBook");
 let dialog = document.getElementById("dialogBook");
@@ -71,3 +106,6 @@ dialog.addEventListener("close", () => {
     }, 2000);
 
 });
+
+addDefaultBooks();
+displayBookCards();
