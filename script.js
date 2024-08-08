@@ -77,13 +77,14 @@ function addDefaultBooks(){
 
 let addBookbtn = document.getElementById("addBook");
 let dialog = document.getElementById("dialogBook");
-let confirmBtn = document.getElementById("confirmBtn");
+let formDialog = document.querySelector(".form-dialog");
 
 addBookbtn.addEventListener("click", () => {
     dialog.showModal();
 });
 
-confirmBtn.addEventListener("click", event => {
+
+formDialog.addEventListener("submit", event => {
     event.preventDefault();
     addBook();
 });
