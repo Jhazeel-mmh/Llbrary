@@ -37,6 +37,7 @@ function addBook(){
     myLibrary.push(book);
 
     dialog.close("success");
+    resetNavItemsStatus();
 };
 
 function displayBookCards(library = myLibrary){
@@ -56,7 +57,6 @@ function displayBookCards(library = myLibrary){
     });
     attachRemoveListeners();
     changeBtnsStatus();
-    resetNavItemsStatus();
 };
 
 function addDefaultBooks(){
