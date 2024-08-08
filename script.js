@@ -35,24 +35,28 @@ function addBook(){
     if (!book) return dialog.close("error");
 
     myLibrary.push(book);
-    dialog.close("success");
-}
 
-function displayBookCards(){
+    dialog.close("success");
+};
+
+function displayBookCards(library = myLibrary){
     let librayContainer = document.querySelector(".library");
     librayContainer.innerHTML = "";
-    myLibrary.forEach((book, index) => {
+    library.forEach((book, index) => {
         let templateCard = document.getElementById("templateCardBook").cloneNode(true);
         templateCard.id = index;
         book.setId(index);
         templateCard.querySelector(".book-front-page-img").src = book.url;
         templateCard.querySelector(".book-title").textContent = book.title;
         templateCard.querySelector(".book-author").textContent = book.author;
+        if (book.read == true) templateCard.querySelector(".read-btn").classList.add("read");
+        if (book.fav == true) templateCard.querySelector(".fav-btn").classList.add("fav");
         librayContainer.appendChild(templateCard);
     });
     attachRemoveListeners();
     changeBtnsStatus();
-}
+    resetNavItemsStatus();
+};
 
 function addDefaultBooks(){
     let TBATEe = new Book("The Beginning After The End Vol. 8", "TurtleMe", 559, 
@@ -83,7 +87,7 @@ function attachRemoveListeners(){
             displayBookCards();
         }); 
     });     
-}
+};
 
 function changeTheme(){
     let library = document.querySelector(".library");
@@ -91,16 +95,24 @@ function changeTheme(){
     let aside = document.querySelector(".aside");
     let svgs = document.querySelectorAll("img[src$='.svg']")
     let btns = document.querySelectorAll("button");
+    let dialog = document.getElementById("dialogBook")
+    let dialogInputs = dialog.querySelectorAll("input");
+
     library.classList.toggle("blackTheme");
+    dialog.classList.toggle("blackTheme");
     header.classList.toggle("font-clr-100");
     aside.classList.toggle("font-clr-100");
+
     svgs.forEach(s => {
         s.classList.toggle("svg-invert");
     });
     btns.forEach(b => {
         b.classList.toggle("font-clr-100")
     });
-}
+    dialogInputs.forEach(i => {
+        i.classList.toggle("blackTheme");
+    });
+};
 
 function changeBtnsStatus(){
     let readBtns = document.querySelectorAll(".read-btn");
@@ -126,7 +138,14 @@ function changeBtnsStatus(){
 
         });
     }); 
-}
+};
+
+function resetNavItemsStatus(){
+    let navItems = document.querySelectorAll(".nav-item");
+    navItems.forEach(n => {
+        n.classList.remove("nav-item-active");
+    });
+};
 
 
 let addBookbtn = document.getElementById("addBook");
@@ -145,14 +164,17 @@ formDialog.addEventListener("submit", event => {
     }
     addBook();
     displayBookCards();
+    formDialog.reset();
+    requiredInputs.forEach(i => document.querySelector("#" + i.id + "+ span").classList.remove("span-error", "span-success"));
 });
 
 
 
-let requiredInputs = document.querySelectorAll("input[required");
+let requiredInputs = document.querySelectorAll("input[required]");
 requiredInputs.forEach(i => {
     i.addEventListener("input", () => {
         if (!i.validity.valid){
+            // select the correct span element with the id of the input
             document.querySelector("#" + i.id + "+ span").classList.add("span-error");
             document.querySelector("#" + i.id + "+ span").classList.remove("span-success");
         } else {
@@ -186,6 +208,31 @@ dialog.addEventListener("close", () => {
 let changeThemeBtn = document.getElementById("colorTheme");
 changeThemeBtn.addEventListener("click", changeTheme);
 
+let navItems = document.querySelectorAll(".nav-item");
+navItems.forEach(n => {
+    n.addEventListener("click", () => {
+        navItems.forEach(b => b.classList.remove("nav-item-active"));
+
+        n.classList.toggle("nav-item-active");
+        if (n.id == "fav-books"){
+            let favBooks = myLibrary.filter(book => book.fav === true);
+            displayBookCards(favBooks);
+            return;
+        }
+
+        if (n.id == "read-books"){
+            let readBooks = myLibrary.filter(book => book.read === true);
+            displayBookCards(readBooks);
+            return;
+        }
+
+        if (n.id == "all-books"){
+            displayBookCards();
+        }
+
+    })
+
+});
 
 
 addDefaultBooks();
