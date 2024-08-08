@@ -75,7 +75,6 @@ function addDefaultBooks(){
     myLibrary.push(TBATEsix);
 };
 
-
 let addBookbtn = document.getElementById("addBook");
 let dialog = document.getElementById("dialogBook");
 let confirmBtn = document.getElementById("confirmBtn");
@@ -88,6 +87,24 @@ confirmBtn.addEventListener("click", event => {
     event.preventDefault();
     addBook();
 });
+
+
+
+let requiredInputs = document.querySelectorAll("input[required");
+requiredInputs.forEach(i => {
+    i.addEventListener("input", () => {
+        if (!i.validity.valid){
+            document.querySelector("#" + i.id + "+ span").classList.add("span-error");
+            document.querySelector("#" + i.id + "+ span").classList.remove("span-success");
+        } else {
+            document.querySelector("#" + i.id + "+ span").classList.add("span-success");
+            document.querySelector("#" + i.id + "+ span").classList.remove("span-error");
+        }
+    });
+});
+
+
+
 
 let promptMsg = document.querySelector(".prompt");
 

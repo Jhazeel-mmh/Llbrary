@@ -5,11 +5,11 @@
     --clr-neutral-100: #fdfafa;
     --clr-green-500: #16a34a;
     --clr-red-500: #991b1b;
-    /*
-    --clr-primary-700: ;
-    --clr-primary-500: ;
-    --clr-primary-200: ;
-    */
+    
+    --clr-primary-700: #172554;
+    --clr-primary-500: #1e3a8a;
+    --clr-primary-200: #1d4ed8;
+    
     --fw-bold: 700;
     --fw-normal: 400;
     --fw-tinny: 300;
@@ -32,6 +32,7 @@ img[src$="svg"] {
 
 .container {
     width: 100vw;
+    min-height: 100vh;
     display: grid;
     grid-template: minmax(100px, 1fr) 9fr / minmax(200px, 1fr) 9fr;
     grid-template-areas: 
@@ -132,6 +133,7 @@ img[src$="svg"] {
     grid-template-rows: 100px 1fr;
     justify-content: center;
     gap: 20px;
+    background-color: var(--clr-primary-200);
 }
 
 #page-title {
@@ -247,13 +249,14 @@ img[src$="svg"] {
 .form-dialog {
     display: flex;
     flex-flow: column;
-    gap: 30px;
+    gap: 50px;
 }
 
 .form-dialog > label {
     display: grid;
     grid-template-columns: 0.5fr 2fr;
     align-items: center;
+    gap: 0px 30px;
 }
 
 #isReadLabel {
@@ -291,4 +294,37 @@ img[src$="svg"] {
     padding: 25px;
     border: none;
     border-radius: 0.5rem;
+}
+
+.form-dialog input {
+    padding: 0.5rem;
+}
+
+.form-dialog input:focus {
+    outline: none;
+}
+
+input:required + span {
+    position: relative;
+}
+
+input:required + span::after {
+    content: "Required";
+    position: absolute;
+    background-color: var(--clr-primary-200);
+    color: var(--clr-neutral-100);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-tinny);
+    padding: 10px;
+    border-radius: 0.5rem;
+    bottom: 4.5vh;
+    left: 20vw;
+}
+
+
+input:required + span.span-error::after {
+    background-color: var(--clr-red-500);
+}
+input:required + span.span-success::after {
+    background-color: var(--clr-green-500) ;
 }

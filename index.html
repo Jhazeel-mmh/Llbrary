@@ -40,17 +40,7 @@
             </ul>
         </div>
         <div class="library">
-            <div class="book-card" id="templateCardBook">
-                <div class="book-front-page">
-                    <img src="" alt="" class="book-front-page-img">
-                </div>
-                <h2 class="book-title">The Beggining After The End</h2>
-                <h3 class="book-author">TurtleMe</h3>
-                <div class="book-options">
-                    <button type="button" id="read-1">Read</button>
-                    <button type="button" id="fav-1"><img src="icos/book-heart.svg" alt=""></button>
-                </div>
-            </div>
+            
         </div>
         <dialog id="dialogBook">
             <form class="dialogBook__header">
@@ -60,11 +50,13 @@
             <form class="form-dialog">
                 <label for="title">
                     Title:
-                    <input type="text" name="bookTitle" id="title" placeholder="Harry Potter">
+                    <input type="text" name="bookTitle" id="title" placeholder="Harry Potter" required>
+                    <span class="span-title"></span>
                 </label>
                 <label for="author">
                     Author:
-                    <input type="text" name="bookAuthor" id="author" placeholder="J. K. Rowling">
+                    <input type="text" name="bookAuthor" id="author" placeholder="J. K. Rowling" required>
+                    <span class="span-author"></span>
                 </label>
                 <label for="pages">
                     Pages: 
@@ -87,6 +79,17 @@
                 </div>
             </form>
         </dialog>
+    </div>
+    <div class="book-card" id="templateCardBook">
+        <div class="book-front-page">
+            <img src="" alt="" class="book-front-page-img">
+        </div>
+        <h2 class="book-title">The Beggining After The End</h2>
+        <h3 class="book-author">TurtleMe</h3>
+        <div class="book-options">
+            <button type="button" id="read-1">Read</button>
+            <button type="button" id="fav-1"><img src="icos/book-heart.svg" alt=""></button>
+        </div>
     </div>
 </body>
 </html>
