@@ -27,7 +27,6 @@ ul[role="list"], ol[role="list"] {
 img[src$="svg"] {
     width: 30px;
     height: 50px;
-    fill: var(--clr-primary-700, black);
 }
 
 .container {
@@ -47,6 +46,7 @@ img[src$="svg"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: var(--fw-bold);
 }
 
 .prompt {
@@ -134,10 +134,13 @@ img[src$="svg"] {
     justify-content: center;
     gap: 20px;
     background-color: var(--clr-primary-200);
+    font-weight: var(--fw-bold);
 }
 
 #page-title {
     align-self: center;
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bold);
 }
 
 .nav-item {
@@ -155,9 +158,17 @@ img[src$="svg"] {
     gap: 30px;
 }
 
-.library-black {
+.blackTheme {
     background-color: var(--clr-neutral-700);
     color: var(--clr-neutral-100);
+}
+
+.font-clr-100 {
+    color: var(--clr-neutral-100);
+}
+
+.svg-invert {
+    filter: invert(1);
 }
 
 .book-card {

@@ -15,7 +15,7 @@ Book.prototype.toggleRead = function (){
 }
 
 Book.prototype.toggleFav = function (){
-    this.read = !this.fav;
+    this.fav = !this.fav;
 }
 
 Book.prototype.setId = function(id){
@@ -84,6 +84,18 @@ function attachRemoveListeners(){
     });     
 }
 
+function changeTheme(){
+    let library = document.querySelector(".library");
+    let header = document.querySelector(".header");
+    let aside = document.querySelector(".aside");
+    let svgs = document.querySelectorAll("img[src$='.svg']")
+    library.classList.toggle("blackTheme");
+    header.classList.toggle("font-clr-100");
+    aside.classList.toggle("font-clr-100");
+    svgs.forEach(s => {
+        s.classList.toggle("svg-invert");
+    });
+}
 
 
 let addBookbtn = document.getElementById("addBook");
@@ -141,10 +153,7 @@ dialog.addEventListener("close", () => {
 });
 
 let changeThemeBtn = document.getElementById("colorTheme");
-changeThemeBtn.addEventListener("click", () => {
-    let library = document.querySelector(".library");
-    library.classList.toggle("library-black");
-});
+changeThemeBtn.addEventListener("click", changeTheme());
 
 
 addDefaultBooks();
