@@ -49,6 +49,7 @@ function displayBookCards(library = myLibrary){
         templateCard.querySelector(".book-front-page-img").src = book.url;
         templateCard.querySelector(".book-title").textContent = book.title;
         templateCard.querySelector(".book-author").textContent = book.author;
+        templateCard.querySelector(".book-pages").textContent = book.pages;
         if (book.read == true) templateCard.querySelector(".read-btn").classList.add("read");
         if (book.fav == true) templateCard.querySelector(".fav-btn").classList.add("fav");
         librayContainer.appendChild(templateCard);

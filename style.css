@@ -226,6 +226,21 @@ img[src$="svg"] {
     opacity: 0;
 }
 
+.book-pages {
+    position: absolute;
+    left: 5%;
+    top: 5px;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+    width: 30px;
+    height: 15px;
+    display: flex;                                                                                                      
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-neutral-500);
+}
+
 .book-card:hover .rm-book {
     opacity: 1;
 }
