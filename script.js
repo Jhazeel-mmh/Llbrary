@@ -40,13 +40,14 @@ function addBook(){
 
 function displayBookCards(){
     let librayContainer = document.querySelector(".library");
+    librayContainer.innerHTML = "";
     myLibrary.forEach((book, index) => {
         let templateCard = document.getElementById("templateCardBook").cloneNode(true);
         templateCard.id = index;
         book.setId(index);
         templateCard.querySelector(".book-front-page-img").src = book.url;
-        templateCard.querySelector(".book-title");
-        templateCard.querySelector(".book-author");
+        templateCard.querySelector(".book-title").textContent = book.title;
+        templateCard.querySelector(".book-author").textContent = book.author;
         librayContainer.appendChild(templateCard);
     });
 }
@@ -82,6 +83,7 @@ formDialog.addEventListener("submit", event => {
         return;
     }
     addBook();
+    displayBookCards();
 });
 
 
