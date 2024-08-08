@@ -140,5 +140,12 @@ dialog.addEventListener("close", () => {
 
 });
 
+let changeThemeBtn = document.getElementById("colorTheme");
+changeThemeBtn.addEventListener("click", () => {
+    let library = document.querySelector(".library");
+    library.classList.toggle("library-black");
+});
+
+
 addDefaultBooks();
 displayBookCards();

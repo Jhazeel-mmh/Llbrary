@@ -155,6 +155,11 @@ img[src$="svg"] {
     gap: 30px;
 }
 
+.library-black {
+    background-color: var(--clr-neutral-700);
+    color: var(--clr-neutral-100);
+}
+
 .book-card {
     display: flex;
     flex-direction: column;
@@ -182,7 +187,7 @@ img[src$="svg"] {
     padding: 10px;
     width: 15px;
     height: 15px;
-    display: flex;
+    display: flex;                                                                                                      
     justify-content: center;
     align-items: center;
     background-color: var(--clr-neutral-500);
