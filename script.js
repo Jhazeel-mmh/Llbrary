@@ -34,14 +34,6 @@ function addBook(){
 
     if (!book) return dialog.close("error");
 
-    // ensures that  all the inputs are filled
-    for (propertie in book){
-        if (propertie !== "read" && !book[propertie]){
-            dialog.close("error");
-            return;
-        }
-    }
-
     myLibrary.push(book);
     dialog.close("success");
 }
@@ -86,6 +78,9 @@ addBookbtn.addEventListener("click", () => {
 
 formDialog.addEventListener("submit", event => {
     event.preventDefault();
+    if (!event.target.checkValidity()){
+        return;
+    }
     addBook();
 });
 
