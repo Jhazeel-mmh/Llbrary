@@ -51,6 +51,7 @@ function displayBookCards(){
         librayContainer.appendChild(templateCard);
     });
     attachRemoveListeners();
+    changeBtnsStatus();
 }
 
 function addDefaultBooks(){
@@ -89,12 +90,42 @@ function changeTheme(){
     let header = document.querySelector(".header");
     let aside = document.querySelector(".aside");
     let svgs = document.querySelectorAll("img[src$='.svg']")
+    let btns = document.querySelectorAll("button");
     library.classList.toggle("blackTheme");
     header.classList.toggle("font-clr-100");
     aside.classList.toggle("font-clr-100");
     svgs.forEach(s => {
         s.classList.toggle("svg-invert");
     });
+    btns.forEach(b => {
+        b.classList.toggle("font-clr-100")
+    });
+}
+
+function changeBtnsStatus(){
+    let readBtns = document.querySelectorAll(".read-btn");
+    let favBtns = document.querySelectorAll(".fav-btn");
+
+    readBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            let idOfBook = btn.parentElement.parentElement.id;
+            myLibrary.forEach(book => {
+                if (book.id == idOfBook) book.toggleRead();
+            });
+            btn.classList.toggle("read");
+        });
+    });
+
+    favBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            let idOfBook = btn.parentElement.parentElement.id;
+            myLibrary.forEach(book => {
+                if (book.id == idOfBook) book.toggleFav();
+            });
+            btn.classList.toggle("fav");
+
+        });
+    }); 
 }
 
 
@@ -153,7 +184,8 @@ dialog.addEventListener("close", () => {
 });
 
 let changeThemeBtn = document.getElementById("colorTheme");
-changeThemeBtn.addEventListener("click", changeTheme());
+changeThemeBtn.addEventListener("click", changeTheme);
+
 
 
 addDefaultBooks();

@@ -82,7 +82,6 @@ img[src$="svg"] {
     align-items: center;
     gap: 10px;
     background-color: var(--clr-primary-200, var(--clr-neutral-500));
-    color: var(--clr-primary-700, black);
     padding: 10px;
     border: none;
     border-radius: 0.5rem;
@@ -253,10 +252,16 @@ img[src$="svg"] {
     background-color: var(--clr-primary-200, var(--clr-neutral-200));
 }
 
-
-
 .book-options button:hover {
     background-color: var(--clr-primary-500, var(--clr-neutral-500));
+}
+
+.book-options .fav {
+    background-color: var(--clr-red-500);
+}
+
+.book-options .read {
+    background-color: var(--clr-green-500);
 }
 
 #dialogBook[open] {
