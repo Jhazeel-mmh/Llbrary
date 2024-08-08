@@ -50,6 +50,7 @@ function displayBookCards(){
         templateCard.querySelector(".book-author").textContent = book.author;
         librayContainer.appendChild(templateCard);
     });
+    attachRemoveListeners();
 }
 
 function addDefaultBooks(){
@@ -67,6 +68,23 @@ function addDefaultBooks(){
     myLibrary.push(TBATEs);
     myLibrary.push(TBATEsix);
 };
+
+function attachRemoveListeners(){
+    let removeBtns = document.querySelectorAll(".rm-book");
+    removeBtns.forEach(button => {
+        button.addEventListener("click", () => {
+            let idToRemove = button.parentElement.id;
+            myLibrary.forEach(b => {
+                if (idToRemove == b.id){
+                    myLibrary.splice(idToRemove, 1);
+                }
+            });
+            displayBookCards();
+        }); 
+    });     
+}
+
+
 
 let addBookbtn = document.getElementById("addBook");
 let dialog = document.getElementById("dialogBook");

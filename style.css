@@ -151,8 +151,7 @@ img[src$="svg"] {
     padding: 30px;
     display: grid;
     grid-template-columns:  repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(2, 400px);
-    grid-auto-rows: 500px;
+    grid-template-rows: repeat(auto-fill, 400px);
     gap: 30px;
 }
 
@@ -161,7 +160,9 @@ img[src$="svg"] {
     flex-direction: column;
     gap: 10px;
     transition: 0.5s;
+    justify-content: space-between;
     max-height: 100%;
+    position: relative;
 }
 
 .book-card:hover {
@@ -172,8 +173,31 @@ img[src$="svg"] {
     display: none;
 }
 
+.rm-book {
+    position: absolute;
+    left: 85%;
+    top: 5px;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-neutral-500);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.book-card:hover .rm-book {
+    opacity: 1;
+}
+
+
 .book-front-page {
     width: 100%;
+    height: 250px;
     max-height: 250px;
     background-color: var(--clr-primary-500, var(--clr-neutral-500));
     border-radius: 0.5rem;
@@ -212,6 +236,8 @@ img[src$="svg"] {
     border: none;
     background-color: var(--clr-primary-200, var(--clr-neutral-200));
 }
+
+
 
 .book-options button:hover {
     background-color: var(--clr-primary-500, var(--clr-neutral-500));
