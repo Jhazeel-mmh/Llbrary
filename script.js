@@ -29,7 +29,7 @@ class Book {
         this.fav = !this.fav;
     }
 
-    get id{
+    get id(){
         return this._id;
     }
 
