@@ -1,5 +1,5 @@
 const myLibrary = [];
-
+/*
 function Book(title, author, pages, url, read){
     this.id = -1;
     this.title = title;
@@ -8,8 +8,37 @@ function Book(title, author, pages, url, read){
     this.url = url;
     this.read = read;
     this.fav = false;
-};
+};*/
 
+class Book {
+    constructor(title, author, pages, url, read){
+        this._id = -1;
+        this.title = title; 
+        this.author = author;
+        this.pages = pages;
+        this.url = url;
+        this.read = read;
+        this.fav = false;
+    }
+
+    toggleRead() {
+        this.read = !this.read;
+    }
+
+    toggleFav() {
+        this.fav = !this.fav;
+    }
+
+    get id{
+        return this._id;
+    }
+
+    set id(id){
+        this._id = id;
+    }
+}
+
+/*
 Book.prototype.toggleRead = function (){
     this.read = !this.read;
 }
@@ -20,7 +49,7 @@ Book.prototype.toggleFav = function (){
 
 Book.prototype.setId = function(id){
     this.id = id;
-}
+}*/
 
 function addBook(){
     // get all the inputs values
@@ -46,7 +75,7 @@ function displayBookCards(library = myLibrary){
     library.forEach((book, index) => {
         let templateCard = document.getElementById("templateCardBook").cloneNode(true);
         templateCard.id = index;
-        book.setId(index);
+        book.id = index;
         templateCard.querySelector(".book-front-page-img").src = book.url;
         templateCard.querySelector(".book-title").textContent = book.title;
         templateCard.querySelector(".book-author").textContent = book.author;

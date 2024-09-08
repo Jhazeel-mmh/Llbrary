@@ -31,3 +31,7 @@ Also was the tool in which I generate the book cards inside the library. I relat
 I understand or learn that I only can  attach event listeners to elements that alredy exits in the DOM so I attach the event listeners of the buttons of the bookcards inside of the displayCardsBook (or something like that) function to listen correctly the buttons.
 
 I use JS to filter the books depending of their status.
+
+### 08/09/2024
+
+I refactor the library project to use classes instead of objects and object constructors.
